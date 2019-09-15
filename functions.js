@@ -6,6 +6,12 @@
  */
 function greet(name) {
   // Your code here
+  if (name){
+    console.log(`Hello ${name}`);
+  }
+  else{
+    console.log("Hello");
+  }
 }
 
 /**
@@ -15,8 +21,15 @@ function greet(name) {
  */
 function isOdd(n) {
   // Your code here
+  //retyrn !(n%2 !== 0);
+  //return !!(n%2)
+  if (n%2 !== 0){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
-
 /**
  * oddsSmallerThan(n):
  * - receives a number n
@@ -30,6 +43,12 @@ function isOdd(n) {
  */
 function oddsSmallerThan(n) {
   // Your code here
+  //return (n-(n%2)/2)
+  if(n%2 !== 0){
+    n--;
+  }
+  return (n/2)
+  
 }
 
 /**
@@ -44,6 +63,14 @@ function oddsSmallerThan(n) {
  */
 function squareOrDouble(n) {
   // Your code here
+  //if (isOdd(n)) return n*n;
+  //return 2*n;
+  if (n%2 !==0){
+    return (n*n)
+  }
+  else{
+    return (2*n)
+  }
 }
 
 /**
@@ -66,6 +93,23 @@ function ageFromBirthDate(birthDate) {
   const _MS_PER_YEAR = 1000 * 60 * 60 * 24 * 365;
 
   // Your code here
+  //let today = new Date();
+  //let DOB = new Date(birthDate);
+  //let age = today.getFullYear() - DOB.getFullYear()
+  //let m = today.getMonth() - DOB.getMonth()
+  //if (m < 0 || (m === 0 && today.getDate() < DOB.getDate())){
+    //age = age - 1;
+  // }
+  //return age;
+  const year = birthDate.slice(0,4);
+  const month = birthDate.slice(4,6);
+  const day = birthDate.slice(6);
+  const today = new Date();
+  const DOB = new Date(`${month}/${day}/${year}`);
+  let age = today - DOB;
+  age = age / _MS_PER_YEAR;
+  return Math.floor(age);
+
 }
 
 module.exports = {
